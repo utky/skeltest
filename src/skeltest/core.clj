@@ -20,7 +20,7 @@
   (assoc app
          :config
          (config/parse-config
-           (get-in app [:options :config]))))
+           (slurp (get-in app [:options :config])))))
 
 (defn- parse-data
   [app]
@@ -29,13 +29,6 @@
           (parser/parse
             (:config app)
             (get-in app [:options :input]))))
-
-(defn- process-data
-  [app]
-  (update app
-          :data
-          ;;(pass/inherit-id)))
-          identity))
 
 (defn- translate
   [app]
@@ -69,6 +62,5 @@
        (init-app)
        (read-config)
        (parse-data)
-       (process-data)
        (translate)
        (write-file)))

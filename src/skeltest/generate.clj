@@ -150,11 +150,6 @@
   [data]
   (reverse (map #(if (or (seq? %) (vector? %)) (reverse %) %) data)))
 
-(defn buf
-  [data]
-  (doall (map println data))
-  data)
-
 (defn generate
   [data]
   (->> data

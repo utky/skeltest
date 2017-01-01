@@ -21,6 +21,5 @@
    columns])
 
 (defn parse-config
-  [path]
-  (-> (slurp path)
-      (json/read-str :key-fn keyword)))
+  [input-str]
+  (json/read-str input-str :key-fn keyword))

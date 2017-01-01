@@ -11,7 +11,7 @@
 (defn- col-value
   "Return string value in cell in specified row.
    row: Row
-   column: [:column-name index]
+   col-name: Keyword
   "
   [columns row col-name]
   (let [index (col-name columns)]
